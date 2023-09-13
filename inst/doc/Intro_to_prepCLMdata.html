@@ -353,8 +353,8 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <h1>An Introduction to the <em>prepCLMdata</em> Package</h1>
 <div id="introduction" class="section level2">
 <h2>Introduction</h2>
-<p>The <em>prepCLMdata</em> package is designed to prepare climate data
-(in particular, that from WorldClim) for species niche modelling in
+<p>The <em>prepCLMdata</em> R package is designed to prepare climate
+data (in particular, that from WorldClim) for species niche modelling in
 DIVA-GIS.</p>
 <p>By merging <strong>monthly temperature (max and min) and/or monthly
 precipitation data</strong> with <strong>known species niches (optimum
@@ -406,33 +406,46 @@ file in DIVA-GIS.</p>
 </div>
 <div id="after-importing-the-data-in-diva-gis" class="section level2">
 <h2>After: Importing the data in DIVA-GIS</h2>
-<p>To import and use the climate data in DIVA-GIS: 1. Navigate to
-<strong>Data &gt; Climate &gt; Make CLM files</strong> 2. Navigate to
-your data directory (the final output after running prepclmdata()) and
-<strong>double-click the folder</strong>. The list of .grd files should
-now show in the top-middle panel. 3. Ensure that the ‘File prefixes’ are
-correctly set (i.e. tmin, tmax, rain) and <strong>REMOVE any
-Suffix</strong>. Ensure the ‘Make Index’ checkbox is ticked. 4.
-<strong>Click Files</strong>. The files should populate in their
-respective parameters below. 5. <strong>Click OK</strong>. 6. After the
-process is complete, click <strong>Close</strong>. 7. Navigate to
-<strong>Tools &gt; Options</strong> 8. Navigate to the same folder where
-your .grd data was stored then <strong>click OK</strong>. 9. enter
-<strong>“climate”</strong> without quotation marks in the box below. 10.
-Click <strong>Apply</strong> (metadata of the climate data should
-appear) then OK. 11. You are finally free to <strong>commence the
-species niche modelling:</strong> 12. Navigate to <strong>Modeling &gt;
-Ecocrop</strong>. 13. <strong>Select your species</strong> then click
-the <strong>Predict tab</strong>. 14. Enter <strong>extent
-coordinates</strong> (setting for full globe: MinX: -180; MinY: -90;
-MaxX: 180; MaxY:90) 15. Next to ‘climate Database’ <strong>click climate
-from the dropdown</strong> 16. Set an <strong>Output location</strong>
-and your choice of model runs. 17. Click <strong>Apply</strong> then OK.
-18. A .grd file will be created. You can <strong>export this via Data
+<p>To import and use the climate data in DIVA-GIS:</p>
+<ol style="list-style-type: decimal">
+<li><p>Navigate to <strong>Data &gt; Climate &gt; Make CLM
+files</strong></p></li>
+<li><p>Navigate to your data directory (the final output after running
+prepclmdata()) and <strong>double-click the folder</strong>. The list of
+.grd files should now show in the top-middle panel.</p></li>
+<li><p>Ensure that the ‘File prefixes’ are correctly set (i.e. tmin,
+tmax, rain) and <strong>REMOVE any Suffix</strong>. Ensure the ‘Make
+Index’ checkbox is ticked.</p></li>
+<li><p><strong>Click Files</strong>. The files should populate in their
+respective parameters below.</p></li>
+<li><p><strong>Click OK</strong>.</p></li>
+<li><p>After the process is complete, click
+<strong>Close</strong>.</p></li>
+<li><p>Navigate to <strong>Tools &gt; Options</strong></p></li>
+<li><p>Navigate to the same folder where your .grd data was stored then
+<strong>click OK</strong>.</p></li>
+<li><p>enter <strong>“climate”</strong> without quotation marks in the
+box below.</p></li>
+<li><p>Click <strong>Apply</strong> (metadata of the climate data should
+appear) then OK.</p></li>
+<li><p>You are finally free to <strong>commence the species niche
+modelling:</strong></p></li>
+<li><p>Navigate to <strong>Modeling &gt; Ecocrop</strong>.</p></li>
+<li><p><strong>Select your species</strong> then click the
+<strong>Predict tab</strong>.</p></li>
+<li><p>Enter <strong>extent coordinates</strong> (setting for full
+globe: MinX: -180; MinY: -90; MaxX: 180; MaxY:90)</p></li>
+<li><p>Next to ‘climate Database’ <strong>click climate from the
+dropdown</strong></p></li>
+<li><p>Set an <strong>Output location</strong> and your choice of model
+runs.</p></li>
+<li><p>Click <strong>Apply</strong> then OK.</p></li>
+<li><p>A .grd file will be created. You can <strong>export this via Data
 &gt; Export Gridfile &gt; Single File</strong>. If purely for
 visualisation, we recommend using Google Earth .KMZ, otherwise we
 recommend using ESRI ASCII for importing onto QGIS, ARCGIS or other GIS
-systems.</p>
+systems.</p></li>
+</ol>
 <div id="using-your-own-climate-data" class="section level3">
 <h3>Using your own climate data</h3>
 <p>Though the data is designed for use with WorldClim data, it can be

@@ -22,7 +22,7 @@ library(prepclmdata)
 
 ## Introduction ##
 
-The *prepCLMdata* package is designed to prepare climate data (in particular, that from WorldClim) for species niche modelling in DIVA-GIS. 
+The *prepCLMdata* R package is designed to prepare climate data (in particular, that from WorldClim) for species niche modelling in DIVA-GIS. 
 
 By merging **monthly temperature (max and min) and/or monthly precipitation data** with **known species niches (optimum growing conditions and absolute limits)** from the FAO's ECOCROP database, DIVA-GIS can calculate the suitability of each grid cell (0-100%). 
 
@@ -62,23 +62,41 @@ prepclmdata()
 ## After: Importing the data in DIVA-GIS ##
 
 To import and use the climate data in DIVA-GIS:
+
 1. Navigate to **Data > Climate > Make CLM files**
+
 2. Navigate to your data directory (the final output after running prepclmdata()) and **double-click the folder**. The list of .grd files should now show in the top-middle panel.
+
 3. Ensure that the 'File prefixes' are correctly set (i.e. tmin, tmax, rain) and **REMOVE any Suffix**. Ensure the 'Make Index' checkbox is ticked.
+
 4. **Click Files**. The files should populate in their respective parameters below.
+
 5. **Click OK**.
+
 6. After the process is complete, click **Close**.
+
 7. Navigate to **Tools > Options**
+
 8. Navigate to the same folder where your .grd data was stored then **click OK**.
+
 9. enter **"climate"** without quotation marks in the box below.
+
 10. Click **Apply** (metadata of the climate data should appear) then OK.
+
 11. You are finally free to **commence the species niche modelling:**
+
 12. Navigate to **Modeling > Ecocrop**. 
+
 13. **Select your species** then click the **Predict tab**.
+
 14. Enter **extent coordinates** (setting for full globe: MinX: -180; MinY: -90; MaxX: 180; MaxY:90)
+
 15. Next to 'climate Database' **click climate from the dropdown**
+
 16. Set an **Output location** and your choice of model runs.
+
 17. Click **Apply** then OK.
+
 18. A .grd file will be created. You can **export this via Data > Export Gridfile > Single File**. If purely for visualisation, we recommend using Google Earth .KMZ, otherwise we recommend using ESRI ASCII for importing onto QGIS, ARCGIS or other GIS systems.
 
 ### Using your own climate data ###

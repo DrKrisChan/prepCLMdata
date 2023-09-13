@@ -12,4 +12,4 @@ Encoding: UTF-8
 Suggests: knitr, rmarkdown
 VignetteBuilder: knitr
 NeedsCompilation: no
-Packaged: 2023-09-13 18:17:06 UTC; krist
+Packaged: 2023-09-13 18:52:36 UTC; krist
