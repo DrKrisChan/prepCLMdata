@@ -81,13 +81,13 @@ To import and use the climate data in DIVA-GIS:
 17. Click **Apply** then OK.
 18. A .grd file will be created. You can **export this via Data > Export Gridfile > Single File**. If purely for visualisation, we recommend using Google Earth .KMZ, otherwise we recommend using ESRI ASCII for importing onto QGIS, ARCGIS or other GIS systems.
 
-## Version amendments
-
-0.1.1: Added the ability to check and prepare data where each month is a separate file (as is the case with historical/'near current' climate data)
-
 ## Using your own climate data
 
 Though the data is designed for use with WorldClim data, it can be used with your own data. To do so, you will need to export a monthly .tif layer stack for 1) minimum temperature (degrees celcius÷10; requires tmin in name), 2) maximum temperature (degrees celcius÷10; requires tmax in name), and 3) rainfall (mm; requires prec in name). Note that as WorldClim temperature data is scaled at 10x (i.e. pixel values of 1 actually represent 10 degrees Celcius), true temperature data must first be divided by 10.
+
+## Version amendments
+
+0.1.1: Added the ability to check and prepare data where each month is a separate file (as is the case with historical/'near current' climate data)
 
 # Found the package useful?
 
