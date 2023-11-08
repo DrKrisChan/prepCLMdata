@@ -1,7 +1,7 @@
 ---
 title: "Introduction to prepCLMdata"
 output: rmarkdown::html_vignette
-vignette: >
+vignette: > 
   %\VignetteIndexEntry{Introduction to prepCLMdata}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
@@ -103,6 +103,9 @@ To import and use the climate data in DIVA-GIS:
 
 Though the data is designed for use with WorldClim data, it can be used with your own data. To do so, you will need to export a monthly .tif layer stack for 1) minimum temperature (degrees celcius÷10; requires tmin in name), 2) maximum temperature (degrees celcius÷10; requires tmax in name), and 3) rainfall (mm; requires prec in name). Note that as WorldClim temperature data is scaled at 10x (i.e. pixel values of 1 actually represent 10 degrees Celcius), true temperature data must first be divided by 10.
 
+## Version amendments ##
+
+0.1.1: Added the ability to check and prepare data where each month is a separate file (as is the case with historical/'near current' climate data)
 
 ## Found the package useful? ##
 
@@ -119,4 +122,4 @@ For suggestions or bug reporting, visit: [https://github.com/DrKrisChan/prepCLMd
 ## Citation ##
 
 Please cite as:
-Chan, K. (2023) prepCLMData R package (Version 0.1.0). Available from: https://github.com/DrKrisChan/prepCLMdata/issues
+Chan, K. (2023) prepCLMData R package (Version 0.1.1). Available from: https://github.com/DrKrisChan/prepCLMdata/issues
