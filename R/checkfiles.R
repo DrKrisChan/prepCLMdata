@@ -1,4 +1,10 @@
+#' Checks the min temperature, max tempature and precipitation files in the working directory and whether there are any expected errors.
+#'
+#' @returns test results
 #' @export
+#'
+#' @examples checkfiles()
+
 checkfiles<-function(){
   precmultiple=FALSE
   tminmultiple=FALSE
