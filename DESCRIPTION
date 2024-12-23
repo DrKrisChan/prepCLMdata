@@ -1,4 +1,4 @@
-Package: prepCLMdata
+Package: prepclmdata
 Title: Prepare CLM climate projections for species niche modelling in DIVA-GIS
 Version: 0.2.1
 Authors@R: 
