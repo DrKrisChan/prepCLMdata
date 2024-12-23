@@ -44,7 +44,7 @@ We have now added options, selectable by putting either 1 (for WorldClim) or 2 (
 ```r
 prepexample(2)
 ```
-The preexample() command will create an **example folder** in the current working directory where the data is downloaded. The working directory is then set to this example folder.
+The prepexample() command will create an **example folder** in the current working directory where the data is downloaded. The working directory is then set to this example folder.
 
 More detail about the example data can be found by searching ??prepexample
 
@@ -85,7 +85,7 @@ To import and use the climate data in DIVA-GIS:
 11. You are finally free to **commence the species niche modelling:**
 12. Navigate to **Modeling > Ecocrop**. 
 13. **Select your species** then click the **Predict tab**.
-14. Enter **extent coordinates** (setting for full globe: MinX: -180; MinY: -90; MaxX: 180; MaxY:90)
+14. Enter **extent coordinates** (easiest to click the 'Maximum extent' button or enter your subset)
 15. Next to 'climate Database' **click climate from the dropdown**
 16. Set an **Output location** and your choice of model runs.
 17. Click **Apply** then OK.
