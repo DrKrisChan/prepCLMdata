@@ -1,0 +1,13 @@
+Package: prepCLMdata
+Title: Prepare CLM climate projections for species niche modelling in DIVA-GIS
+Version: 0.2.1
+Authors@R: 
+    person("Kristofer", "Chan", , "kristofer.chan@kcl.ac.uk", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-9710-2745"))
+Description: Prepare CLM data for DIVA-GIS
+License: GPL (>= 3)
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.1
+Imports: 
+    raster
