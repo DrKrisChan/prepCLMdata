@@ -114,4 +114,4 @@ For suggestions or bug reporting, visit: [https://github.com/DrKrisChan/prepCLMd
 # Citation
 
 Please cite as:
-**Chan, K. (2023)** prepCLMData R package (Version 0.1.0). Available from: [https://github.com/DrKrisChan/prepCLMdata/issues](https://github.com/DrKrisChan/prepCLMdata/issues)
+**Chan, K. (2024)** prepCLMData R package (Version 0.2.1). Available from: [https://github.com/DrKrisChan/prepCLMdata/issues](https://github.com/DrKrisChan/prepCLMdata/issues)
