@@ -19,7 +19,7 @@ library(devtools)
 
 Install the prepCLMdata package:
 ```r
-install_github("DrKrisChan/prepclmdata")
+install_github("DrKrisChan/prepclmdata", force=TRUE)
 ```
 
 Finally, make sure the library is activated:
@@ -39,7 +39,12 @@ You can automatically download example data for use using:
 ```r
 prepexample()
 ```
-Note that this will create an **example folder** in the current working directory where the data is downloaded. The working directory is then set to this example folder.
+
+We have now added options, selectable by putting either 1 (for WorldClim) or 2 (for CHELSAcruts) in the bracket, e.g.:
+```r
+prepexample(2)
+```
+The preexample() command will create an **example folder** in the current working directory where the data is downloaded. The working directory is then set to this example folder.
 
 More detail about the example data can be found by searching ??prepexample
 
@@ -55,6 +60,11 @@ checkfiles()
 Finally, prepare the CLM data for use in DIVA-GIS using:
 ```r
 prepclmdata()
+```
+
+We have added the ability to crop the area of extent by adding the xmin, xmax, ymin and ymax in brackets (decimal degrees, separated by commas), e.g.:
+```r
+prepclmdata(-1, 1, 50, 52)
 ```
 
 **Make note of the directory once the instruction completes** - you will need to navigate to it to create the CLM file in DIVA-GIS.
@@ -86,7 +96,7 @@ To import and use the climate data in DIVA-GIS:
 Though the data is designed for use with WorldClim data, it can be used with your own data. To do so, you will need to export a monthly .tif layer stack for 1) minimum temperature (degrees celcius÷10; requires tmin in name), 2) maximum temperature (degrees celcius÷10; requires tmax in name), and 3) rainfall (mm; requires prec in name). Note that as WorldClim temperature data is scaled at 10x (i.e. pixel values of 1 actually represent 10 degrees Celcius), true temperature data must first be divided by 10.
 
 ## Version amendments
-
+0.2.1: Added second example data download link (CHELSAcruts) and subsetting option to non-global regions of interest.
 0.1.1: Added the ability to check and prepare data where each month is a separate file (as is the case with historical/'near current' climate data)
 
 # Found the package useful?
