@@ -11,7 +11,7 @@
 #' @export
 #'
 #' @description
-#' Prepares the CLM data for import into DIVA-GIS.
+#' Prepares the CLM data for import into DIVA-GIS.  Update Feb 2025: added argument to for temperature data to be divided by 10 (correctTemp=1). CHELSAcruts data will be automatically detected and the correction flag removed.
 #'
 #' BEFORE USING: ensure that you have either: 1) set your working directory and ran prepexample(), or 2) have downloaded the necessary data in your working directory:
 #' - \strong{minimum temperature data} - often labelled tn
@@ -27,7 +27,11 @@
 #' @examples #prepare CLM data for around London/SE England
 #' prepclmdata(-1, 1, 50, 52)
 
-prepclmdata <- function(xmin=-180,xmax=180,ymin=-90,ymax=90){
+prepclmdata <- function(xmin=-180,xmax=180,ymin=-90,ymax=90,correctTemp=1){
+  if(length(list.files(, pattern="CHELSAcruts", recursive = T))>0){
+    correctTemp=0
+  print("CHELSAcruts data detected. Switching to not correct temperature")
+  }
   if((is.null(xmin)) | (is.null(xmax)) | (is.null(ymin)) | (is.null(ymax))) {
     print("No extent given. Proceeding with global coverage")
     cropped=0
@@ -49,10 +53,10 @@ prepclmdata <- function(xmin=-180,xmax=180,ymin=-90,ymax=90){
         img <- raster(prec[x])
         writeRaster(img, paste(getwd(),"/rain",x,".grd",sep=""), overwrite=TRUE)
         img <- raster(tmin[x])
-        img = img*10
+        if(correctTemp==1){img = img*10}
         writeRaster(img, paste(getwd(),"/tmin",x,".grd",sep=""), overwrite=TRUE)
         img <- raster(tmax[x])
-        img = img*10
+        if(correctTemp==1){img = img*10}
         writeRaster(img, paste(getwd(),"/tmax",x,".grd",sep=""), overwrite=TRUE)
       }
       else{
@@ -61,11 +65,11 @@ prepclmdata <- function(xmin=-180,xmax=180,ymin=-90,ymax=90){
         writeRaster(img, paste(getwd(),"/rain",x,".grd",sep=""), overwrite=TRUE)
         img <- raster(tmin[x])
         img = crop(img, e)
-        img = img*10
+        if(correctTemp==1){img = img*10}
         writeRaster(img, paste(getwd(),"/tmin",x,".grd",sep=""), overwrite=TRUE)
         img <- raster(tmax[x])
         img = crop(img, e)
-        img = img*10
+        if(correctTemp==1){img = img*10}
         writeRaster(img, paste(getwd(),"/tmax",x,".grd",sep=""), overwrite=TRUE)
       }
     } else{
@@ -76,11 +80,11 @@ prepclmdata <- function(xmin=-180,xmax=180,ymin=-90,ymax=90){
         writeRaster(img, paste(getwd(),"/rain",x,".grd",sep=""), overwrite=TRUE)
         img <- raster(tmin, band=x)
         img = crop(img, e)
-        img = img*10
+        if(correctTemp==1){img = img*10}
         writeRaster(img, paste(getwd(),"/tmin",x,".grd",sep=""), overwrite=TRUE)
         img <- raster(tmax,band = x)
         img = crop(img, e)
-        img = img*10
+        if(correctTemp==1){img = img*10}
         writeRaster(img, paste(getwd(),"/tmax",x,".grd",sep=""), overwrite=TRUE)
         img <- raster(tmax,band = 1)
       }
@@ -88,16 +92,16 @@ prepclmdata <- function(xmin=-180,xmax=180,ymin=-90,ymax=90){
         img <- raster(prec, band=x)
         writeRaster(img, paste(getwd(),"/rain",x,".grd",sep=""), overwrite=TRUE)
         img <- raster(tmin, band=x)
-        img = img*10
+        if(correctTemp==1){img = img*10}
         writeRaster(img, paste(getwd(),"/tmin",x,".grd",sep=""), overwrite=TRUE)
         img <- raster(tmax,band = x)
-        img = img*10
+        if(correctTemp==1){img = img*10}
         writeRaster(img, paste(getwd(),"/tmax",x,".grd",sep=""), overwrite=TRUE)
         img <- raster(tmax,band = 1)
       }
     }
   }
-
+  
   img[img>-10000] <- 1
   writeRaster(img, paste(getwd(),"/alt.grd",sep=""), overwrite=TRUE)
   return(paste0("Files successfully prepared! Directory for reference: ",getwd()))
