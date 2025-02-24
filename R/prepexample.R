@@ -3,7 +3,7 @@
 #' @param source Use 1 for WorldClim SSP1-2.6 2021-24 HadGEM3-GC31-LL data (default); 2 for CHELSAcruts 2016 data.
 #'
 #' @description
-#' Downloads example climate data. Update Dec 2024: as WorldClim servers can be tempremental, an option parameter has been added to download recent meterological data from CHELSAcruts.
+#' Downloads example climate data. Update Feb 2025: added unzip function for WorldClim data. Update Dec 2024: as WorldClim servers can be tempremental, an option parameter has been added to download recent meterological data from CHELSAcruts.
 #'
 #'
 #'
@@ -26,12 +26,13 @@ prepexample <-function(source=1){
     setwd(paste0(getwd(),"/example"))
   }
   if(source==1){
-    tmin_exdata <- "https://geodata.ucdavis.edu/climate/worldclim/2_1/base/wc2.1_10m_tmin.zip"
-    tmax_exdata <- "https://geodata.ucdavis.edu/climate/worldclim/2_1/base/wc2.1_10m_tmax.zip"
-    prec_exdata <- "https://geodata.ucdavis.edu/climate/worldclim/2_1/base/wc2.1_10m_prec.zip"
-    download.file(tmin_exdata,paste0(getwd(),"/wc2.1_10m_tmin_HadGEM3-GC31-LL_ssp126_2021-2040.tif"),mode="wb")
-    download.file(tmax_exdata,paste0(getwd(),"/wc2.1_10m_tmax_HadGEM3-GC31-LL_ssp126_2021-2040.tif"),mode="wb")
-    download.file(prec_exdata,paste0(getwd(),"/wc2.1_10m_prec_HadGEM3-GC31-LL_ssp126_2021-2040.tif"),mode="wb")
+    temp <- tempfile()
+    download.file("https://geodata.ucdavis.edu/climate/worldclim/2_1/base/wc2.1_10m_tmin.zip",temp)
+    unzip(temp)
+    download.file("https://geodata.ucdavis.edu/climate/worldclim/2_1/base/wc2.1_10m_tmax.zip",temp)
+    unzip(temp)
+    download.file("https://geodata.ucdavis.edu/climate/worldclim/2_1/base/wc2.1_10m_prec.zip",temp)
+    unzip(temp)
     print("WorldClim example data successfully prepared!")
   }
   if(source==2){
