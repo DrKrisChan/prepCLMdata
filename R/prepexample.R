@@ -33,6 +33,7 @@ prepexample <-function(source=1){
     unzip(temp)
     download.file("https://geodata.ucdavis.edu/climate/worldclim/2_1/base/wc2.1_10m_prec.zip",temp)
     unzip(temp)
+    unlink(temp)
     print("WorldClim example data successfully prepared!")
   }
   if(source==2){
