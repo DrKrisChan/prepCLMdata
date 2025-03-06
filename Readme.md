@@ -67,6 +67,11 @@ We have added the ability to crop the area of extent by adding the xmin, xmax, y
 prepclmdata(-1, 1, 50, 52)
 ```
 
+We have also added the an argument for if the temperature values don't need correcting (set to 0, default=1 which assumes it does), which will be the case where temperature data is already multiplied by 10 for some reason - data downloaded from CHELSAcruts comes in this format so correction should not be applied. The example below would therefore be for CHELSAcruts:
+```r
+prepclmdata(xmin=-1, xmax=1, ymin=50, ymax=52, correctTemp=0)
+```
+
 **Make note of the directory once the instruction completes** - you will need to navigate to it to create the CLM file in DIVA-GIS.
 
 # After: Importing the data in DIVA-GIS
@@ -79,9 +84,9 @@ To import and use the climate data in DIVA-GIS:
 5. **Click OK**.
 6. After the process is complete, click **Close**.
 7. Navigate to **Tools > Options**
-8. Navigate to the same folder where your .grd data was stored then **click OK**.
-9. enter **"climate"** without quotation marks in the box below.
-10. Click **Apply** (metadata of the climate data should appear) then OK.
+8. **Navigate to the same folder** where your .grd data was stored.
+9. From the dropdown, find **"climate"** without quotation marks in the box below.
+10. **IMPORTANT:** Click **Apply** (metadata of the climate data should appear) then **OK**.
 11. You are finally free to **commence the species niche modelling:**
 12. Navigate to **Modeling > Ecocrop**. 
 13. **Select your species** then click the **Predict tab**.
