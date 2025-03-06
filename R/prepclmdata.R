@@ -32,7 +32,8 @@ prepclmdata <- function(xmin=-180,xmax=180,ymin=-90,ymax=90,correctTemp=1){
     correctTemp=0
   print("CHELSAcruts data detected. Switching to not correct temperature")
   }
-  if((is.null(xmin)) | (is.null(xmax)) | (is.null(ymin)) | (is.null(ymax))) {
+  if() {
+  if((xmin==-180 & xmax==180 & ymin==-90 & ymax==90)) {
     print("No extent given. Proceeding with global coverage")
     cropped=0
   }
