@@ -6,6 +6,7 @@
 #' @param xmax eastmost longitudinal extent (in decimal degrees). Precede with minus if necessary. Default: 180°
 #' @param ymin southmost latitudinal extent (in decimal degrees). Precede with minus if necessary. Default: -90°
 #' @param ymax northmost latitudinal extent (in decimal degrees). Precede with minus if necessary. Default: 90°
+#' @param correctTemp (1 for yes, 2 for no - where temp is already multiplied by 10). Default: 1 [i.e. assumes genuine temperature (e.g. 25.1°C) and therefore corrects to a value of 251, required by DIVA GIS)]
 #'
 #' @returns prepared .grd files for DIVA-GIS
 #' @export
@@ -74,7 +75,7 @@ prepclmdata <- function(xmin=-180,xmax=180,ymin=-90,ymax=90,correctTemp=1){
       }
     } else{
       print(paste("resolving band ", x, " of 12", sep=""))
-      if(cropped==0){
+      if(cropped==1){
         img <- raster(prec, band=x)
         img = crop(img, e)
         writeRaster(img, paste(getwd(),"/rain",x,".grd",sep=""), overwrite=TRUE)
