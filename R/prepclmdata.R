@@ -87,7 +87,6 @@ prepclmdata <- function(xmin=-180,xmax=180,ymin=-90,ymax=90,correctTemp=1){
         img = crop(img, e)
         if(correctTemp==1){img = img*10}
         writeRaster(img, paste(getwd(),"/tmax",x,".grd",sep=""), overwrite=TRUE)
-        img <- raster(tmax,band = 1)
       }
       else{
         img <- raster(prec, band=x)
@@ -98,7 +97,6 @@ prepclmdata <- function(xmin=-180,xmax=180,ymin=-90,ymax=90,correctTemp=1){
         img <- raster(tmax,band = x)
         if(correctTemp==1){img = img*10}
         writeRaster(img, paste(getwd(),"/tmax",x,".grd",sep=""), overwrite=TRUE)
-        img <- raster(tmax,band = 1)
       }
     }
   }
