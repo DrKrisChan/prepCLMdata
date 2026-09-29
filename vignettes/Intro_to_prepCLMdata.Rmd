@@ -39,12 +39,18 @@ You can automatically download example data for use using:
 ```
 prepexample()
 ```
-Note that this will create an **example folder** in the current working directory where the data is downloaded. The working directory is then set to this example folder.
+to download WorldClim data, or:
+```
+prepexample(2)
+```
+to download CHELSAcruts data.
+
+Note that the prepexample command will create an **example folder** in the current working directory where the data is downloaded. **The working directory is then set to this example folder.**
 
 More detail about the example data can be found by searching ??prepexample
 
 3. **Check the data:**
-It is first worthwhile checking that a valid 1) minimum temperature; 2) maximum temperature, and; 3) precipitation dataset are in the working directory. 
+It is first worthwhile checking that valid 1) minimum temperature; 2) maximum temperature, and; 3) precipitation datasets are in the working directory. These must have "tmin_", "tmax_" and "prec_" somewhere in the file titles, followed by the month number (1 to 12). There should therefore be 36 files for preparation in the directory.
 
 If a precipitation dataset is not required, you can copy one of the temperature datasets, being careful to rename the "tmin" part of the file name to "prec"
 ```
@@ -56,6 +62,8 @@ Finally, prepare the CLM data for use in DIVA-GIS using:
 ```
 prepclmdata()
 ```
+
+Run ??prepclmdata in R to check the options.
 
 **Make note of the directory once the instruction completes** - you will need to navigate to it to create the CLM file in DIVA-GIS.
 
