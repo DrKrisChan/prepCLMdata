@@ -354,7 +354,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <div id="introduction" class="section level2">
 <h2>Introduction</h2>
 <p>The <em>prepCLMdata</em> R package is designed to prepare climate
-data (in particular, that from WorldClim) for species niche modelling in
+data (in particular, that from WorldClim or CHELSAcruts) for species niche modelling in
 DIVA-GIS.</p>
 <p>By merging <strong>monthly temperature (max and min) and/or monthly
 precipitation data</strong> with <strong>known species niches (optimum
@@ -364,7 +364,7 @@ database, DIVA-GIS can calculate the suitability of each grid cell
 <p>Whilst DIVA-GIS already incorporates the ECOCROP model, a very high
 number of individuals online struggle to prepare climate data for use in
 the model. This package is designed to overcome that issue. It has been
-specifically designed for use with <a href="https://www.worldclim.org/">UC Davis’ WorldClim data</a>, which
+specifically designed for use with <a href="https://www.worldclim.org/">UC Davis’ WorldClim data</a>, or CHELSAcruts which
 comprises current, historic, and future climate data. The tool can
 however be on your own data (see note below).</p>
 </div>
@@ -381,15 +381,20 @@ data):</strong> You can automatically download example data for use
 using:</li>
 </ol>
 <pre><code>prepexample()</code></pre>
-<p>Note that this will create an <strong>example folder</strong> in the
-current working directory where the data is downloaded. The working
-directory is then set to this example folder.</p>
+<p>to download WorldClim data, or:</p>
+<pre><code>prepexample(2)</code></pre>
+  <p>to download CHELSAcruts data.</p>
+<p>Note that the prepexample command will create an <strong>example folder</strong> in the
+current working directory where the data is downloaded. <strong>The working
+directory is then set to this example folder.</strong>strong></p>
 <p>More detail about the example data can be found by searching
 ??prepexample</p>
 <ol start="3" style="list-style-type: decimal">
 <li><strong>Check the data:</strong> It is first worthwhile checking
 that a valid 1) minimum temperature; 2) maximum temperature, and; 3)
-precipitation dataset are in the working directory.</li>
+precipitation dataset are in the working directory. These must have "tmin_", 
+"tmax_" and "prec_" somewhere in the file titles, followed by the 
+month number (1 to 12). There should therefore be 36 files for preparation in the directory.</li>
 </ol>
 <p>If a precipitation dataset is not required, you can copy one of the
 temperature datasets, being careful to rename the “tmin” part of the
