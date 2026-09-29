@@ -386,7 +386,7 @@ using:</li>
   <p>to download CHELSAcruts data.</p>
 <p>Note that the prepexample command will create an <strong>example folder</strong> in the
 current working directory where the data is downloaded. <strong>The working
-directory is then set to this example folder.</strong>strong></p>
+directory is then set to this example folder.</strong></p>
 <p>More detail about the example data can be found by searching
 ??prepexample</p>
 <ol start="3" style="list-style-type: decimal">
@@ -405,6 +405,14 @@ file name to “prec”</p>
 for use in DIVA-GIS using:</li>
 </ol>
 <pre><code>prepclmdata()</code></pre>
+<p>Note: the base instruction assumes whole-world extent is required 
+  (or all of the extent if using your own data) and temperature is genuine 
+temperature e.g. 25.1 (°C) versus 251.</p>
+  <p>If requiring temperature correction from a x10 value, use argument correctTemp=0 
+    (or correctTemp=1 if values are accurate temperature readings).</p>
+    <p>Spatial extent can also be set using the order xmin, xmax, ymin, ymax, e.g.
+      for London using correct temp data (such as WorldClim data):</p>
+  <pre><code>prepclmdata(-1, 1, 50, 52, correctTemp=1)</code></pre>
 <p><strong>Make note of the directory once the instruction
 completes</strong> - you will need to navigate to it to create the CLM
 file in DIVA-GIS.</p>
