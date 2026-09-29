@@ -1,6 +1,6 @@
 # **prepCLMdata**: R package for preparing climate data for Species Niche modelling in DIVA-GIS
 
-This package is designed to prepare climate data (in particular, that from WorldClim) for species niche modelling in DIVA-GIS. 
+This package is designed by Dr Kristofer Chan to prepare climate data (in particular, that from WorldClim) for species niche modelling in DIVA-GIS.
 
 By merging **monthly temperature (max and min) and/or monthly precipitation data** with **known species niches (optimum growing conditions and absolute limits)** from the FAO's ECOCROP database, DIVA-GIS can calculate the suitability of each grid cell (0-100%). 
 
@@ -22,6 +22,12 @@ Install the prepCLMdata package:
 install_github("DrKrisChan/prepclmdata", force=TRUE)
 ```
 
+Alternative package install (Note: recent R versions seem to take issue with the install_github command, hence the alternative).
+```r
+install.packages("remotes") #if necessary
+remotes::install_git("https://github.com/DrKrisChan/prepclmdata.git", force=TRUE)
+```
+
 Finally, make sure the library is activated:
 ```r
 library(prepclmdata)
@@ -33,6 +39,7 @@ library(prepclmdata)
 ```r
 setwd("C:/MyWorkingDirectory")
 ```
+*Note that the prepexample will change this to "/example"
 
 2. **Using the example data (skip to 3 if using your own data):**
 You can automatically download example data for use using:
@@ -49,9 +56,11 @@ The prepexample() command will create an **example folder** in the current worki
 More detail about the example data can be found by searching ??prepexample
 
 3. **Check the data:**
-It is first worthwhile checking that a valid 1) minimum temperature; 2) maximum temperature, and; 3) precipitation dataset are in the working directory. 
+First, ensure you have the relevant datasets in your working directory consisting of 1) minimum temperatures, 2) maximum temperatures, and; 3) precipitations for each month (labelled with tmin_, tmax_ and prec_ followed by all months (1-12) respectively somewhere in their names). There should therefore be at least 36 files in the directory.
 
-If a precipitation dataset is not required, you can copy one of the temperature datasets, being careful to rename the "tmin" part of the file name to "prec"
+We can first worthwhile checking that all of the required datasets are in the working directory. 
+
+If a precipitation dataset is not required, you can copy and paste one of the temperature datasets, being careful to rename the "tmin" part of the file name to "prec" (with each month following).
 ```r
 checkfiles()
 ```
@@ -67,7 +76,7 @@ We have added the ability to crop the area of extent by adding the xmin, xmax, y
 prepclmdata(-1, 1, 50, 52)
 ```
 
-We have also added the an argument for if the temperature values don't need correcting (set to 0, default=1 which assumes it does), which will be the case where temperature data is already multiplied by 10 for some reason - data downloaded from CHELSAcruts comes in this format so correction should not be applied. The example below would therefore be for CHELSAcruts:
+We have also added the an argument [correctTemp=1] for if the temperature values are true temperature values, e.g. 37.5 (°C) and therefore doesn't need correcting. CHELSAcruts stores temperature data as multiplied by 10 to make the decimal values integers (i.e. 375 vs the true 37.5°C), thus needing correcting [correctTemp=0]. The example below would therefore be for CHELSAcruts data (Note: WorldClim data however is true temperature):
 ```r
 prepclmdata(xmin=-1, xmax=1, ymin=50, ymax=52, correctTemp=0)
 ```
@@ -98,9 +107,10 @@ To import and use the climate data in DIVA-GIS:
 
 ## Using your own climate data
 
-Though the data is designed for use with WorldClim data, it can be used with your own data. To do so, you will need to export a monthly .tif layer stack for 1) minimum temperature (degrees celcius÷10; requires tmin in name), 2) maximum temperature (degrees celcius÷10; requires tmax in name), and 3) rainfall (mm; requires prec in name). Note that as WorldClim temperature data is scaled at 10x (i.e. pixel values of 1 actually represent 10 degrees Celcius), true temperature data must first be divided by 10.
+Though the data is designed for use with WorldClim or CHELSAcruts data, it can be used with your own data. To do so, you will need to export a monthly .tif layer stack for 1) minimum temperature (in degrees celcius. Requires tmin_ in name followed by 1 for Jan, 2 for Feb, etc.), 2) maximum temperature (in degrees celcius. Requires tmax_ in name followed by month number), and 3) rainfall (mm; requires prec_ in name followed by month number). Data must be in Coordinate Reference System WGS84 (EPSG:4326).
 
 ## Version amendments
+0.2.2: Added explanation of alternative install (using remotes::install_git() rather than install.github() ) and minor documentation improvements made.
 0.2.1: Added second example data download link (CHELSAcruts) and subsetting option to non-global regions of interest.
 0.1.1: Added the ability to check and prepare data where each month is a separate file (as is the case with historical/'near current' climate data)
 
@@ -119,4 +129,4 @@ For suggestions or bug reporting, visit: [https://github.com/DrKrisChan/prepCLMd
 # Citation
 
 Please cite as:
-**Chan, K. (2024)** prepCLMData R package (Version 0.2.1). Available from: [https://github.com/DrKrisChan/prepCLMdata/issues](https://github.com/DrKrisChan/prepCLMdata/issues)
+**Chan, K. (2026)** prepCLMData R package (Version 0.2.2). Available from: [https://github.com/DrKrisChan/prepCLMdata/issues](https://github.com/DrKrisChan/prepCLMdata)
